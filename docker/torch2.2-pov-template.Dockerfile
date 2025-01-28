@@ -1,4 +1,4 @@
-FROM starlabunist/pathfinder:pathfinder-torch2.2-pov-base
+FROM starlabunist/pathfinder:torch2.2-pov-base
 
 
 ###########################
