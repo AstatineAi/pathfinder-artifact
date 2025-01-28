@@ -302,8 +302,8 @@ You can either pull pre-built images from Docker Hub or build them from Dockerfi
 
 If you want to extend this script, which facilitates PathFinder fuzzing and coverage measurement, to another DL library, you should first do the following:
 
-- [Import PathFinder into your DL library](https://github.com/starlab-unist/pathfinder/README.md#3-how-to-import-pathfinder).
-- [Extend PDG for your DL library](https://github.com/starlab-unist/pathfinder-driver-generator/README.md#3-how-to-extend-to-other-dl-libraries).
+- [Import PathFinder into your DL library](https://github.com/starlab-unist/pathfinder/blob/main/README.md#3-how-to-import-pathfinder).
+- [Extend PDG for your DL library](https://github.com/starlab-unist/pathfinder-driver-generator/blob/main/README.md#3-how-to-extend-to-other-dl-libraries).
 
 ### 4.2. Requirements
 
