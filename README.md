@@ -55,6 +55,10 @@ You can either pull pre-built images from Docker Hub or build them from Dockerfi
 - (necessary) PathFinder Base Image
 
     ```bash
+    # Pull PathFinder and PDG
+    git submodule sync
+    git submodule update --init --recursive
+
     docker build -f $PWD/docker/base.Dockerfile -t starlabunist/pathfinder:base .
     ```
 
