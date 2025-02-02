@@ -486,7 +486,7 @@ class GcovJobScheduler(JobScheduler):
 
         runner = os.path.join(container_home_path(), "pathfinder_coverage.py")
         covrun_cmd_prefix = f"python3 -u {runner}"
-        covrun_cmd_prefix = f"{covrun_cmd_prefix} --cmd_prefix {self.dll_info.fuzzer_cmd_prefix(self.ablation)}"
+        covrun_cmd_prefix = f"{covrun_cmd_prefix} --cmd_prefix '{self.dll_info.fuzzer_cmd_prefix(self.ablation)}'"
         covrun_cmd_prefix = f"{covrun_cmd_prefix} --target_dir {self.dll_info.gcov_target_dir()}"
         covrun_cmd_prefix = f"{covrun_cmd_prefix} --third_party_dir {self.dll_info.third_party_dir()}"
 
