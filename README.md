@@ -152,19 +152,19 @@ You can either pull pre-built images from Docker Hub or build them from Dockerfi
 
     ```bash
     python3 -u run.py --dll torch --mode fuzz --asan \
-        --apis torch.nn.functional.max_pool3d        \
+        --apis torch.Tensor.topk                     \
         --time_budget 300 --cpu_capacity 1
     ```
 
     - An instruction for running generated PoVs similar to the following is printed, and the results are stored in `_asan_result`.
 
         ```bash
-        Generated docker image `pathfinder-torch2.2-pov-300sec-0`.
+        Generated docker image `torch2.2-pov-300sec-0`.
         In the docker image, generated PoV source codes are in `/root/pathfinder-torch/pov`.
 
         How to execute PoVs:
             # Run docker container.
-            docker run -it --rm pathfinder-torch2.2-pov-300sec-0 bash
+            docker run -it --rm torch2.2-pov-300sec-0 bash
             # In the docker container, execute each PoV binaries.
             /root/pathfinder-torch/build/bin/<POV_BIN>
         ```
