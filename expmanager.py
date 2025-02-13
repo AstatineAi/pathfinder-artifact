@@ -75,19 +75,19 @@ class FuzzerJob:
 
     def container_exists(self):
         cmd = f"docker inspect {self.container_name}"
-        self.proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE)
+        self.proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
         _ = self.proc.communicate()
         return self.proc.returncode == 0
 
     def is_running(self):
         cmd = f"docker inspect {self.container_name}" + " --format='{{.State.Running}}'"
-        self.proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE)
+        self.proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
         out, _ = self.proc.communicate()
         return out.decode().strip() == "true"
 
     def exitcode(self):
         cmd = f"docker inspect {self.container_name}" + " --format='{{.State.ExitCode}}'"
-        self.proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE)
+        self.proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
         out, _ = self.proc.communicate()
         out = out.decode().strip()
         if out.isdecimal():
@@ -97,12 +97,12 @@ class FuzzerJob:
 
     def stop(self):
         cmd = f"docker stop {self.container_name}"
-        self.proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE)
+        self.proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
         self.proc.wait()
 
     def rm(self):
         cmd = f"docker rm {self.container_name}"
-        self.proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE)
+        self.proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
         self.proc.wait()
 
 
@@ -936,7 +936,7 @@ class JobRunner:
     def prune(self):
         cmd = f"docker volume prune --force"
         print(cmd)
-        proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE)
+        proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
         _ = proc.communicate()
         if proc.returncode == 0:
             print("pruned local volumes seccesfully")
