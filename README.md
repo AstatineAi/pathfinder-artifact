@@ -176,7 +176,7 @@ You can either pull pre-built images from Docker Hub or build them from Dockerfi
 
 > **Note**
 >
-> This script is designed to minimize redundant fuzzing. APIs shared across experiments can reuse existing fuzzing results for coverage measurement. If an API already has results from a previous run, the script will output <code><span style="background-color:azure4"><font color="lightskyblue">Note: Skip <CONTAINER_NAME>, as fuzz result exists in <RESULT_DIRECTORY></font></span></code> and skip fuzzing for that API. 
+> This script is designed to minimize redundant fuzzing. APIs shared across experiments can reuse existing fuzzing results for coverage measurement. If an API already has results from a previous run, the script will output `Note: Skip <CONTAINER_NAME>, as fuzz result exists in <RESULT_DIRECTORY>` and skip fuzzing for that API. 
 
 Common Flags:
 - `--vs`: For RQ1. A baseline tool for comparison. The target APIs are selected from those common to both PathFinder and the baseline. Should be one of {`freefuzz`, `deeprel`, `titanfuzz`, `acetest`, `ivysyn`}.
