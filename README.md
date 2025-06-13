@@ -172,6 +172,15 @@ You can either pull pre-built images from Docker Hub or build them from Dockerfi
     - Related Flags
         - `--asan`: If set, run with AddressSanitizer.
 
+### 2.3. Counting Valid Inputs (Discussion)
+- Example command
+    ```bash
+    python3 scripts/count_input.py --dll torch --result_path ./_fuzz_result/torch2.2-fuzz-default-300sec/
+    ```
+- Flags
+    - `--dll`: Target DL library. Should be one of {`torch`, `tf`}.
+    - `--result_path`: Path of fuzz result directory (under `./_fuzz_result`)
+
 ## 3. Reproducing RQs
 
 > **Note**
