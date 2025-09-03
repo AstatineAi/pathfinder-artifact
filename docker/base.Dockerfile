@@ -77,7 +77,7 @@ ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
 ######################
 
 ENV PATHFINDER=$HOME/pathfinder
-COPY ../pathfinder $PATHFINDER
+COPY ./pathfinder $PATHFINDER
 RUN cd $PATHFINDER && mkdir build && cd build && \
     CC=clang CXX=clang++ cmake -GNinja -DDUET_BIN_PATH=${DUET_BIN_PATH} -DCMAKE_BUILD_TYPE=Release .. && \
     ninja && \
@@ -89,7 +89,7 @@ RUN cd $PATHFINDER && mkdir build && cd build && \
 ############################
 
 ENV PDG=$HOME/pathfinder-driver-generator
-COPY ../pathfinder-driver-generator $PDG
+COPY ./pathfinder-driver-generator $PDG
 RUN cd $PDG && mkdir build && cd build && \
     CC=clang CXX=clang++ cmake -GNinja -DCMAKE_BUILD_TYPE=Debug .. && \
     ninja
@@ -99,5 +99,5 @@ RUN cd $PDG && mkdir build && cd build && \
 # Copy Scripts for Coverage Measurement #
 #########################################
 
-COPY ../scripts/coverage.py $HOME/coverage.py
-COPY ../scripts/pathfinder_coverage.py $HOME/pathfinder_coverage.py
+COPY ./scripts/coverage.py $HOME/coverage.py
+COPY ./scripts/pathfinder_coverage.py $HOME/pathfinder_coverage.py

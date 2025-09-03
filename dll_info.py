@@ -228,8 +228,8 @@ class TorchInfo(DLLInfo):
 
 class TFInfo(DLLInfo):
     def __init__(self, version):
-        check(version == "2.16",
-              f"Error: Invalid version `{version}`. Valid tf versions = [2.16].")
+        check(version == "2.16" or version == "2.19",
+              f"Error: Invalid version `{version}`. Valid tf versions = [2.16, 2.19].")
         use_conda = False
         super().__init__("tf", version, use_conda)
 
