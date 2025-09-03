@@ -2,6 +2,9 @@
 
 ## Torch
 
+1. `docker build -f $PWD/docker/base.Dockerfile -t starlabunist/pathfinder:base .`
+2. `docker build -f $PWD/docker/torch2.7-base.Dockerfile -t starlabunist/pathfinder:torch2.7-base .`
+
 ## TensorFlow
 
 1. download `pathfinder-config.cmake` from main branch of `https://github.com/starlab-unist/pathfinder.git` if it's not included when cloning submodules

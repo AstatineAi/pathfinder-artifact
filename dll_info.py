@@ -152,8 +152,8 @@ class DLLInfo:
 
 class TorchInfo(DLLInfo):
     def __init__(self, version):
-        check(version == "2.2" or version == "1.11",
-              f"Error: Invalid version `{version}`. Valid torch versions = [2.2, 1.11].")
+        check(version == "2.2" or version == "1.11" or version == "2.7",
+              f"Error: Invalid version `{version}`. Valid torch versions = [2.7, 2.2, 1.11].")
         use_conda = True
         super().__init__("torch", version, use_conda)
 
@@ -194,6 +194,8 @@ class TorchInfo(DLLInfo):
             all_targets = all_apis.union(kernels)
         elif self.version == "1.11":
             all_targets = TargetAPISet().from_file(f"{self.name}{self.version}-ivysyn.txt")
+        elif self.version == "2.7":
+            all_targets = TargetAPISet().from_file(f"{self.name}{self.version}-all.txt")
         invalid = apis - all_targets
         check(len(invalid) == 0,
               f"Error: Invalid APIs `{invalid}`.")
